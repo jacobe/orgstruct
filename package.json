@@ -1,0 +1,34 @@
+{
+  "name": "node-express-bootstrap3-template",
+  "version": "0.0.1",
+  "description": "A template for express, NodeJS and twitter bootstrap, with mocha for testing",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nohup node app.js &"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AvnerCohen/node-express-bootstrap3-template.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "template",
+    "twitter",
+    "bootstrap",
+    "bootstrap3",
+    "cluster"
+  ],
+  "author": "Avner Cohen <israbirding@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~3.3.4",
+    "mocha": "~1.12.0",
+    "should": "~1.2.2",
+    "jade": "~0.34.1",
+    "colors": "~0.6.1",
+    "npid": "~0.3.2",
+    "winston": "~0.7.2"
+  }
+}
