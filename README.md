@@ -1,33 +1,15 @@
-## NodeJS express template 
+## Organization structure diagram using NodeJS, a graph database and D3 data visualization library 
 
-Includes:
-* Bootrstrap 3
-* Logging setup - through (https://github.com/flatiron/winston)
-* Initial directory structure
-* Cluster setup to take advantage of all cores available
-* Base testing setup (Mocha)
-* PID managment for tools like Monit/Forever, etc..
-
-
+Requirements
+* NodeJS
+* NPM
 
 ## Usage
 
+To run the sample, execute the following commands after cloning the repository:
+
 ```sh
-git clone git@github.com:AvnerCohen/node-express-bootstrap3-template.git your_app
-cd your_app
-rm -rf ./git
+npm install
+node app.js
 ```
-
-This will get you to start from fresh.
-
-Enjoy.
-
-
-Avner Cohen
-
-http://twitter.com/avnerner
-
-http://github.com/AvnerCohen
-
-http://avner.me
 
