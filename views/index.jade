@@ -4,11 +4,25 @@ html
     title= title
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(href='/css/bootstrap.min.css', rel='stylesheet', media='screen')
+    link(href='/css/style.css', rel='stylesheet')
   body
-  .container              
-    h1 Bienvenido!
-    p.start This is a good place to start.
-    a(href="/") Go Home
+  .container
+    h1 Organization Diagram
+    #chart
+    #editNode
+      form(role='form', action='/save', method='POST')
+        input(name='id', type='hidden')
+        fieldset
+          .form-group
+            input.form-control(name='role', placeholder='Role')
+          .form-group
+            input.form-control(name='members', placeholder='Members')
+          .form-group
+            button.btn.btn-success.btn-small(type='submit', name='save') Save
+            button.btn.btn-danger.btn-small(type='submit', name='remove') Remove
+            button.btn.btn-default.btn-small(type='submit', name='add') Add node
 
   script(src='http://code.jquery.com/jquery.js')
+  script(src='http://d3js.org/d3.v3.min.js')
   script(src='js/bootstrap.min.js')
+  script(src='js/graphs.js')

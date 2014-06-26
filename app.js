@@ -13,14 +13,14 @@ var env = (process.env.NODE_ENV || 'DEVELOPMENT').toLowerCase();
 var Logger = require('winston');
 var npid = require('npid');
 
-
+/*
 if (cluster.isMaster) {
   Logger.log("Master is forking workers");
   for (var i=0; i<numCPUs; ++i) {
     cluster.fork();
   }
   return;
-}
+}*/
 
 npid.create(path.join(__dirname, "pids", ("pid." + process.pid) ));
 
@@ -43,11 +43,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-
-
-subcategory_ids = [  ];
-
-app.get('/ping', routes.ping);
+app.get('/graph', routes.graph);
+app.post('/save', routes.save)
 
 app.listen(app.get('port'), function(){
   Logger.log("Express".green.bold + " server listening on port " + (app.get('port')+ "").green.bold);

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha",
-    "start": "nohup node app.js &"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -23,12 +23,13 @@
   "author": "Avner Cohen <israbirding@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "~3.3.4",
-    "mocha": "~1.12.0",
-    "should": "~1.2.2",
-    "jade": "~0.34.1",
     "colors": "~0.6.1",
+    "express": "~3.3.4",
+    "extend": "^1.3.0",
+    "jade": "~0.34.1",
+    "mocha": "~1.12.0",
     "npid": "~0.3.2",
-    "winston": "~0.7.2"
+    "should": "~1.2.2",
+    "winston": "^0.7.3"
   }
 }
