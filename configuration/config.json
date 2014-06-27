@@ -8,8 +8,5 @@
     "port" : ""
   },
   "globals" : {
-  },
-  "logger" :{
-    "log_dir" : "./log/"
   }
 }

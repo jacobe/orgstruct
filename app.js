@@ -15,7 +15,7 @@ var npid = require('npid');
 
 /*
 if (cluster.isMaster) {
-  Logger.log("Master is forking workers");
+  console.log("Master is forking workers");
   for (var i=0; i<numCPUs; ++i) {
     cluster.fork();
   }
@@ -24,11 +24,11 @@ if (cluster.isMaster) {
 
 npid.create(path.join(__dirname, "pids", ("pid." + process.pid) ));
 
-Logger.log("Initiating worker, pid:" + process.pid);
+console.log("Initiating worker, pid:" + process.pid);
 
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 1337);
+  app.set('port', process.env.PORT || 1338);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -44,10 +44,10 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/graph', routes.graph);
-app.post('/save', routes.save)
+app.post('/save', routes.save);
 
 app.listen(app.get('port'), function(){
-  Logger.log("Express".green.bold + " server listening on port " + (app.get('port')+ "").green.bold);
+  console.log("Express".green.bold + " server listening on port " + (app.get('port')+ "").green.bold);
 });
 
-Logger.log("Started.");
+console.log("Started.");

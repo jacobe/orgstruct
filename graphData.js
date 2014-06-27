@@ -1,7 +1,8 @@
 var extend = require('extend');
 
-var nodes = [ 'organisation', 'role', 'person' ];
-var edges = [
+// Definitions
+var nodeDefinitions = [ 'organisation', 'role', 'person' ];
+var edgeDefinitions = [
 	{ name: 'belongs-in', from: 'role', to: 'organisation' },
 	{ name: 'manages', from: 'role', to: 'role' },
 	{ name: 'works-in', from: 'person', to: 'organisation'},
@@ -56,6 +57,18 @@ var nodeInstance = function(nodeType, data) {
 			}
 		});
 		return related;
+	}
+
+	self.removeEdge = function(edgeType, target) {
+		self.edges = self.edges.filter(function(edge) {
+			var related = (edge.from == self ? edge.to : edge.from);
+			if (edge.type == edgeType && related == target) {
+				related.edges.splice(related.edges.indexOf(edge), 1);
+				delete edgesIndex[edge.id];
+				return false;
+			}
+			return true;
+		});
 	}
 }
 
@@ -149,8 +162,8 @@ exports.dumpObjects = function() {
 	}
 }
 
-exports.getHierarchyData = function() {
-	return buildHierarchyData(getTopRoles()).children[0];
+exports.getHierarchyData = function(callback) {
+	return callback(buildHierarchyData(getTopRoles()).children[0]);
 }
 
 exports.getNodeBy = function(id) {

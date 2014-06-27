@@ -1,7 +1,7 @@
 {
   "name": "node-express-bootstrap3-template",
   "version": "0.0.1",
-  "description": "A template for express, NodeJS and twitter bootstrap, with mocha for testing",
+  "description": "Organization structure diagram using NodeJS, a graph database and D3 data visualization library ",
   "main": "app.js",
   "scripts": {
     "test": "mocha",
@@ -28,6 +28,7 @@
     "extend": "^1.3.0",
     "jade": "~0.34.1",
     "mocha": "~1.12.0",
+    "neo4j": "^1.1.0",
     "npid": "~0.3.2",
     "should": "~1.2.2",
     "winston": "^0.7.3"

@@ -50,9 +50,9 @@ function renderTree(root) {
 	nodeGroup.append("svg:rect")
 	    .attr("class", "node-box")
 	    .attr("width", function(d) {
-	    	var strlen = d.name.length;
+	    	var strlen = d.role.name.length;
 	    	if (d.members && d.members.length) {
-	    		d.membersStr = d.members.join(', ');
+	    		d.membersStr = d.members.map(function(m) { return m.name; }).join(', ');
 	    		if (d.membersStr.length > strlen)
 	    		{
 	    			strlen = d.membersStr.length;
@@ -71,8 +71,8 @@ function renderTree(root) {
 	    .on('click', function(d) {
 	    	var editNode = $('#editNode');
 	    	editNode.css({'left': d3.event.x, 'top': d3.event.y}).show();
-	    	editNode.find('[name=id]').val(d.id);
-	    	editNode.find('[name=role]').val(d.name);
+	    	editNode.find('[name=id]').val(d.role.id);
+	    	editNode.find('[name=role]').val(d.role.name);
 	    	editNode.find('[name=members]').val(d.membersStr);
 	    });
 
@@ -89,7 +89,7 @@ function renderTree(root) {
 	    .attr("dy", 3)
 	    .text(function(d)
 	    {
-	        return d.name;
+	        return d.role.name;
 	    });
 
 
